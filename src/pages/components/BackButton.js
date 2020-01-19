@@ -5,7 +5,7 @@ export const BackButton = () => {
   const history = useHistory();
 
   return (
-    <button onClick={history.goBack}>
+    <button data-testid="back-button" onClick={history.goBack}>
       <span role="img" aria-label="Back Button">
         🔙
       </span>

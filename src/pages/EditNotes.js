@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import { BackButton } from "./components/BackButton";
 
 const StyledForm = styled.form`
   display: flex;
@@ -44,6 +45,7 @@ export const EditNotes = ({ currentNotes, setNotes }) => {
 
   return (
     <div>
+      <BackButton />
       <StyledForm>
         <label htmlFor="title">Title*</label>
         <input

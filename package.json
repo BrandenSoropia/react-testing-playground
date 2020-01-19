@@ -17,7 +17,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
+    "@storybook/addon-actions": "^5.3.6",
+    "@storybook/addon-links": "^5.3.6",
     "@storybook/addon-storyshots": "^5.3.6",
+    "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.6",
     "install": "^0.13.0",
     "typescript": "3.3.3"
