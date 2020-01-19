@@ -24,6 +24,19 @@ export const StyledButton = styled.button`
   border-radius: 3px;
 `;
 
+const createNote = ({ title, body }) =>
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      body,
+      userId: 1
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  }).then(response => response.json());
+
 /**
  * 2 lines of defence for un-filled note:
  * 1) Disable button until both title and details are given
@@ -77,11 +90,15 @@ export const EditNotes = ({ currentNotes, setNotes }) => {
               if (!title || !details) {
                 setShowError(true);
               } else {
-                setNotes([
-                  ...currentNotes,
-                  { title, details, dateCreated: Date.now() }
-                ]);
-                history.push("/");
+                createNote({ title, details, dateCreated: Date.now() })
+                  .then(json => {
+                    setNotes([json, ...currentNotes]);
+                    history.push("/");
+                  })
+                  .catch(error => {
+                    alert("Something went wrong when creating a post!");
+                    console.log(error);
+                  });
               }
             }}
           >

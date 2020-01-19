@@ -7,11 +7,19 @@ import { LoadingIndicator } from "./components/LoadingIndicator";
 const NoteList = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+`;
+
+const PaddedNote = styled(Note)`
+  margin-bottom: 16px;
 `;
 
 const StyledButton = styled.button`
+  border-radius: 3px;
+  font-size: 24px;
   margin: 8px 0;
+  padding: 16px 32px;
+
+  background-color: green;
 `;
 
 export const Home = ({ isLoading, notes }) => {
@@ -23,6 +31,7 @@ export const Home = ({ isLoading, notes }) => {
 
   return (
     <div>
+      <h2>My Notes:</h2>
       {notes.length >= 1 ? (
         <div>
           <StyledButton onClick={() => history.push("/edit")}>
@@ -30,7 +39,7 @@ export const Home = ({ isLoading, notes }) => {
           </StyledButton>
           <NoteList>
             {notes.map(note => (
-              <Note key={`note-${note.id}`} {...note} />
+              <PaddedNote key={`note-${note.id}`} {...note} />
             ))}
           </NoteList>
         </div>
