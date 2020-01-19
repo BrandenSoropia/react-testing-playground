@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Note } from "./components/Note";
 import styled from "styled-components";
+import { LoadingIndicator } from "./components/LoadingIndicator";
 
 const NoteList = styled.div`
   display: flex;
@@ -13,8 +14,12 @@ const StyledButton = styled.button`
   margin: 8px 0;
 `;
 
-export const Home = ({ notes }) => {
+export const Home = ({ isLoading, notes }) => {
   const history = useHistory();
+
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <div>
@@ -25,7 +30,7 @@ export const Home = ({ notes }) => {
           </StyledButton>
           <NoteList>
             {notes.map(note => (
-              <Note key={`note-${note.dateCreated}`} {...note} />
+              <Note key={`note-${note.id}`} {...note} />
             ))}
           </NoteList>
         </div>
