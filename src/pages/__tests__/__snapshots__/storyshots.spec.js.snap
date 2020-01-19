@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots EditNotes Default View 1`] = `
+<div>
+  <form
+    className="sc-bdVaJa eiKNof"
+  >
+    <label
+      htmlFor="title"
+    >
+      Title*
+    </label>
+    <input
+      data-testid="edit-note-title"
+      name="title"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="details"
+    >
+      Details*
+    </label>
+    <input
+      data-testid="edit-note-details"
+      name="details"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <div>
+      <button
+        className="sc-bwzfXH iqBJss"
+        data-testid="edit-note-submit"
+        disabled={true}
+        onClick={[Function]}
+      >
+        Save Note
+      </button>
+    </div>
+  </form>
+</div>
+`;
