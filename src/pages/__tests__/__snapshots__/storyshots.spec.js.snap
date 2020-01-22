@@ -2,6 +2,19 @@
 
 exports[`Storyshots EditNotes Default View 1`] = `
 <div>
+  <button
+    data-testid="back-button"
+    onClick={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Back Button"
+      role="img"
+    >
+      🔙
+    </span>
+    Go Back
+  </button>
   <form
     className="sc-bdVaJa eiKNof"
   >

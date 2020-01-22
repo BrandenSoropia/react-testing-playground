@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { BackButton } from "./components/BackButton";
+import { createNote } from "../services/create-note";
 
 const StyledForm = styled.form`
   display: flex;
@@ -23,19 +24,6 @@ export const StyledButton = styled.button`
   padding: 16px;
   border-radius: 3px;
 `;
-
-const createNote = ({ title, body }) =>
-  fetch("https://jsonplaceholder.typicode.com/posts", {
-    method: "POST",
-    body: JSON.stringify({
-      title,
-      body,
-      userId: 1
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  }).then(response => response.json());
 
 /**
  * 2 lines of defence for un-filled note:
@@ -90,7 +78,7 @@ export const EditNotes = ({ currentNotes, setNotes }) => {
               if (!title || !details) {
                 setShowError(true);
               } else {
-                createNote({ title, details, dateCreated: Date.now() })
+                createNote({ title, details })
                   .then(json => {
                     setNotes([json, ...currentNotes]);
                     history.push("/");
